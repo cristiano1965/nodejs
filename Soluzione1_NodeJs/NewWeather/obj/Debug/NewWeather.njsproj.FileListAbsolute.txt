@@ -1,0 +1,3 @@
+C:\Users\cris6\source\nodejs\Soluzione1_NodeJs\NewWeather\obj\Debug\NewWeather.njsproj.AssemblyReference.cache
+C:\Users\cris6\source\nodejs\Soluzione1_NodeJs\NewWeather\obj\Debug\NewWeather.njsproj.CoreCompileInputs.cache
+C:\Users\cris6\source\nodejs\Soluzione1_NodeJs\NewWeather\bin\Microsoft.NodejsTools.WebRole.dll

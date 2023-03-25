@@ -1,0 +1,3 @@
+C:\Users\cris6\source\nodejs\Soluzione1_NodeJs\Weatherly\obj\Debug\Weatherly.njsproj.AssemblyReference.cache
+C:\Users\cris6\source\nodejs\Soluzione1_NodeJs\Weatherly\obj\Debug\Weatherly.njsproj.CoreCompileInputs.cache
+C:\Users\cris6\source\nodejs\Soluzione1_NodeJs\Weatherly\bin\Microsoft.NodejsTools.WebRole.dll
