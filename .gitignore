@@ -396,3 +396,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/Soluzione1_NodeJs/.vs/Soluzione1_NodeJs/v17/.suo
+/Soluzione1_NodeJs/.vs/Soluzione1_NodeJs/v17/fileList.bin
