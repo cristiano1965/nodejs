@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // per accedere al body della request
 app.use(bodyParser.urlencoded({extended:true}));
 
-// imposta il motore per template EJS (Embedded JavaScript) - E' un linguaggiodi templating; lo installiamo con: npm install --save ejs
+// imposta il motore per template EJS (Embedded JavaScript) - E' un linguaggio di templating; lo installiamo con: npm install --save ejs
 // di default EJS usa la cartella "views" ed il file "index.ejs"
 app.set('view engine', 'ejs');
 
@@ -61,44 +61,53 @@ app.post('/', function (req, res) {
     request(url, function (err, response, body) {
         if (err) {
             res.render('index', { weather: null, error: 'Errore, si prega di riprovare' });
+            console.log('Errore, si prega di riprovare');
         } else {
 
-            if (format === 'xml') {
-                
+            // se la chiamata ritorna un body con '404' la città non è stata trovata
+            let errore = JSON.parse(body)
 
-                const parser = new xml2js.Parser();
-               
-
-                parser.parseString(body, function (error, results) {
-                    if (error === null) {
-                        let tempo = JSON.stringify(results);
-                        let weather = JSON.parse(tempo);
-                        if (weather.current == undefined) {
-                            res.render('index', { weather: null, error: 'Errore, non trovato nulla nel JSON di risposta; si prega di riprovare' });
-                        } else {
-                            let weatherText = `It's ${weather.current.temperature[0].$.value} degrees with ${weather.current.weather[0].$.value} in ${weather.current.city[0].$.name}! `;
-                            res.render('index', { weather: weatherText, error: null });
-                            console.log("body:", body)
-                        }
-
-                    } else {
-                        res.render('index', { weather: null, error: 'Errore, non trovato nulla nel JSON di risposta; si prega di riprovare' });
-                    }
-                });
-            } else {
-                let weather = JSON.parse(body)
-
-                if (weather.main == undefined) {
-                    res.render('index', { weather: null, error: 'Error, please try again' });
-                } else {
-                    let weatherText = `It's ${weather.main.temp} degrees with ${weather.weather[0].main} in ${weather.name}!`;
-                    res.render('index', { weather: weatherText, error: null });
-                    console.log("body:", body)
-                }
-
+            if (errore.cod == '404') {
+                res.render('index', { weather: null, error: errore.message });
+                console.log(errore.message);
             }
-            
+            else {
+                // se ho richiesto rensponse in XML
+                if (format === 'xml') {
+                    const parser = new xml2js.Parser();
+               
+                    parser.parseString(body, function (error, results) {
+                        if (error === null) {
+                            let tempo = JSON.stringify(results); // converte XML in JSON
+                            let weather = JSON.parse(tempo); // converte JSON in oggetto
+                            if (weather.current == undefined) {
+                                res.render('index', { weather: null, error: "Errore, non trovato nulla nell\'XML  di risposta; si prega di riprovare" });
+                            } else {
+                                let weatherText = `It's ${weather.current.temperature[0].$.value} degrees with ${weather.current.weather[0].$.value} in ${weather.current.city[0].$.name}! `;
+                                res.render('index', { weather: weatherText, error: null });
+                                console.log("body:", body)
+                            }
+
+                        } else {
+                            res.render('index', { weather: null, error: "Errore, non trovato nulla nell\'XML di risposta; si prega di riprovare" });
+                        }
+                    });
+                } else {
+                    // formato JSON 
+                    let weather = JSON.parse(body) // converte JSON in oggetto
+
+                    if (weather.main == undefined) {
+                        res.render('index', { weather: null, error: "Errore, non trovato nulla nell JSON di risposta; si prega di riprovare" });
+                    } else {
+                        let weatherText = `It's ${weather.main.temp} degrees with ${weather.weather[0].main} in ${weather.name}!`;
+                        res.render('index', { weather: weatherText, error: null });
+                        console.log("body:", body)
+                    }
+
+                }
+            }
         }
+
     });
 })
 
