@@ -68,18 +68,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-!!!!
-cristiano
-
-
-per cambiare la porta editare la riga  "start": "set PORT=5001 && react-scripts start", all'interno della sezione script di appsettings.json'
-installare con npm react-router-dom
-
-utilizza il framework material-ui che mette a disposizione componenti react già fatti per renderizzare oggetti sulle pagine; si tratta del kit di design usato da google
-c'è poi un framework ancora più semplice che si chiama materialize css  ed utilizzaino due link di materialize css che inseriamo in index.html in \public
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
