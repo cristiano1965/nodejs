@@ -73,7 +73,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 cristiano
 
 
-per cambiare la porta editare la riga  "start": "set PORT=5001 && react-scripts start", all'interno della sezione script di appsettings.json'
+per cambiare la porta editare la riga  "start": "set PORT=5001 && react-scripts start", all'interno della sezione script di package.json'
 installare con npm react-router-dom
 
 utilizza il framework material-ui che mette a disposizione componenti react già fatti per renderizzare oggetti sulle pagine; si tratta del kit di design usato da google

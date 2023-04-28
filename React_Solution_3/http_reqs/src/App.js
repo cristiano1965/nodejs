@@ -1,23 +1,13 @@
-import logo from './logo.svg';
+//import ListaCommenti from './ListaCommenti';  // uso di una classe
+import ListaCommenti from './ListaCommenti2';  // uso di una funzione
+
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          ciao Reactione
-        </a>
-      </header>
+     <ListaCommenti />
     </div>
   );
 }
