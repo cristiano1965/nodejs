@@ -26,11 +26,11 @@ const ListaCommenti = function() {
     // uso i side effect (hook useEffect)
     useEffect(() => {
 
-        // faccio il fetching dei dati
+        // faccio il fetching dei dati inserendo su nrComm il numero singolo del commento (esempio: '5') oppure lasciandolo vuoto per prenderli tutti (esempio: '')
         const nrComm = ''
         fetchData(nrComm)
 
-    }, []) //se dovessi usare delle variabilik di state all'interno della funzione semplicemente le elenco nelle parentesi quadre
+    }, []) //se dovessi usare delle variabili di state all'interno della funzione semplicemente le elenco nelle parentesi quadre
    
     if (errore) {
         return (<>
